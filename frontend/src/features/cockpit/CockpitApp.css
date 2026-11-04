@@ -1,0 +1,740 @@
+/*
+Purpose: Styling for the /cockpit helm phone + companionway tablet UI - high contrast, big tap
+  targets for wet fingers, Day / Sun / Night screen modes, phone and tablet (portrait and
+  landscape) from one layout.
+Version: v2 (2026-10-04) - v2 (cockpit production pass): the app fills the screen (it shrank to
+  its content inside #root's flex column, leaving navy side bands); Sun mode (black on white for
+  direct sunlight) and Night mode (dim red, keeps night vision) as whole-page filters on <html>,
+  so the shared checklist / details / confirm components follow too; the shared checklist rows
+  get cockpit sizes (13 px checkboxes and 11 px text before, now 2.75 rem boxes and 1.1 rem+
+  text, every button >= 48 px tall); top bar, offline banner, error box and weather card styles.
+  v1 (2026-09-17).
+Scope: PRODUCTION - mx-inv frontend, cockpit feature.
+Architecture: Imported by CockpitApp.tsx. All cockpit responsive behaviour lives here (one
+  component tree; the min-width 700px query switches phone "glance" to tablet "work"). The
+  overrides of management/ChecklistSteps, StepDetail and ConfirmDialog classes are all scoped
+  under .cockpit-app or html[data-cockpit-theme], so the desktop app is untouched. The theme
+  attribute is set by CockpitBits.useCockpitTheme.
+*/
+
+/* -- page frame ------------------------------------------------------------------------- */
+html[data-cockpit-theme],
+html[data-cockpit-theme] body {
+  background: #000;
+}
+
+/* Sun: invert the dark UI to black-on-white; hue-rotate puts the colours back roughly where
+   they were (green stays green, red stays red). */
+html[data-cockpit-theme="sun"] {
+  filter: invert(1) hue-rotate(180deg) contrast(1.15);
+}
+
+/* Night: everything as dim red on black (the SVG filter #cockpit-night is in CockpitApp.tsx;
+   the fallback below is used where url() filters are not supported). */
+html[data-cockpit-theme="night"] {
+  filter: grayscale(1) sepia(1) saturate(8) hue-rotate(-40deg) brightness(0.6);
+}
+@supports (filter: url(#cockpit-night)) {
+  html[data-cockpit-theme="night"] {
+    filter: url(#cockpit-night);
+  }
+}
+
+.cockpit-app {
+  width: 100%;
+  min-height: 100svh;
+  background: #000;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1.35;
+  padding: 0.75rem 1rem 2rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cockpit-app *,
+.cockpit-app *::before,
+.cockpit-app *::after {
+  box-sizing: border-box;
+}
+
+.cockpit-main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cockpit-app p {
+  color: inherit;
+}
+
+/* -- top bar + connection banner ------------------------------------------------------- */
+.cockpit-topbar {
+  max-width: 1100px;
+  margin: 0 auto 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cockpit-topbar-home {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.4rem 0.25rem;
+  min-height: 48px;
+  cursor: pointer;
+}
+
+.cockpit-theme-switch {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.cockpit-theme-switch button {
+  background: #111;
+  border: 2px solid #555;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.05rem;
+  min-height: 48px;
+  min-width: 4.5rem;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+
+.cockpit-theme-switch button.active {
+  border-color: #fff;
+  background: #333;
+  font-weight: 700;
+}
+
+.cockpit-offline-banner {
+  max-width: 1100px;
+  margin: 0 auto 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  background: #5a3300;
+  border: 3px solid #ffb020;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+}
+
+.cockpit-banner-retry {
+  margin-left: auto;
+  background: #000;
+  border: 2px solid #ffb020;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.1rem;
+  min-height: 48px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+/* -- home ---------------------------------------------------------------------------- */
+.cockpit-home-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.cockpit-home-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #111;
+  border: 2px solid #555;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.5rem 1rem;
+  min-height: 130px;
+  cursor: pointer;
+}
+
+.cockpit-home-tile:active {
+  background: #222;
+  border-color: #888;
+}
+
+.cockpit-home-tile-icon {
+  font-size: 2.5rem;
+}
+
+/* -- panels, status, errors ------------------------------------------------------------ */
+.cockpit-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cockpit-panel-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #fff;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cockpit-back,
+.cockpit-big-button {
+  flex-shrink: 0;
+  background: #111;
+  border: 2px solid #666;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.6rem 1.1rem;
+  min-height: 56px;
+  min-width: 96px;
+  cursor: pointer;
+}
+
+.cockpit-big-button {
+  margin-top: 0.75rem;
+}
+
+.cockpit-status {
+  font-size: 1.15rem;
+  color: #ddd;
+}
+
+.cockpit-status--error {
+  color: #ff9a9a;
+}
+
+.cockpit-status--done {
+  color: #7dffb3;
+  font-size: 1.35rem;
+}
+
+.cockpit-error-box {
+  background: #2a0000;
+  border: 3px solid #ff6060;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 0.5rem 0 1rem;
+  font-size: 1.2rem;
+}
+
+.cockpit-error-detail {
+  margin-top: 0.4rem;
+  font-size: 1.05rem;
+  color: #ffc0c0;
+}
+
+/* -- checklist picker --------------------------------------------------------------- */
+.cockpit-tap-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cockpit-tap-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  background: #111;
+  border: 2px solid #444;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.25rem;
+  padding: 1rem 1.1rem;
+  min-height: 72px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.cockpit-tap-item:active {
+  background: #222;
+}
+
+.cockpit-tap-item-meta {
+  font-size: 1rem;
+  color: #bbb;
+}
+
+.cockpit-primary-action {
+  width: 100%;
+  margin-top: 1.25rem;
+  background: #145c2e;
+  border: 3px solid #2ab45c;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  padding: 1rem;
+  min-height: 64px;
+  cursor: pointer;
+}
+
+.cockpit-primary-action:disabled {
+  opacity: 0.45;
+}
+
+/* -- the shared checklist body (management/ChecklistSteps) at cockpit size ---------------- */
+.cockpit-app .checklist-steps-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.cockpit-app .checklist-steps-header h3 {
+  font-size: 1.2rem;
+  margin: 0 auto 0 0;
+  color: #fff;
+}
+
+.cockpit-app .checklist-steps-header button {
+  font-size: 1.05rem;
+  min-height: 48px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 10px;
+  background: #111;
+  border: 2px solid #666;
+  color: #fff;
+}
+
+/* Printing is a desktop job; on the cockpit it is just another thing to mis-tap. */
+.cockpit-app .checklist-print-link {
+  display: none;
+}
+
+.cockpit-app .checklist-steps-list li {
+  padding: 0.7rem 0;
+  font-size: 1.15rem;
+  border-bottom: 1px solid #333;
+}
+
+.cockpit-app .step-row {
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cockpit-app .step-row input[type="checkbox"] {
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: #2ab45c;
+  cursor: pointer;
+}
+
+.cockpit-app .step-row > .step-title {
+  font-size: 1.2rem;
+  min-width: 10rem;
+  overflow-wrap: anywhere;
+}
+
+.cockpit-app .step-title--open {
+  color: #9fd0ff;
+  min-height: 44px;
+  text-align: left;
+}
+
+.cockpit-app .checklist-steps-list li.step-done .step-title {
+  color: #8a8a8a;
+}
+
+.cockpit-app .step-detail {
+  margin: 0.35rem 0 0 3.5rem;
+  font-size: 1rem;
+  color: #c8c8c8;
+  line-height: 1.4;
+}
+
+.cockpit-app .step-linked-badge,
+.cockpit-app .step-group {
+  font-size: 0.95rem;
+}
+
+.cockpit-app .step-open-details {
+  font-size: 1.05rem;
+  min-height: 48px;
+  padding: 0.4rem 0.9rem;
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+.cockpit-app .included-checklists button,
+.cockpit-app .step-detail-screen button {
+  min-height: 48px;
+  font-size: 1.05rem;
+}
+
+.cockpit-app .mgmt-status {
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+/* The tap-safe confirm dialog (mounted outside .cockpit-app) at cockpit size. */
+html[data-cockpit-theme] .confirm-dialog {
+  font-size: 1.2rem;
+}
+html[data-cockpit-theme] .confirm-dialog h3 {
+  font-size: 1.4rem;
+}
+html[data-cockpit-theme] .confirm-actions button {
+  min-height: 4rem;
+  font-size: 1.2rem;
+}
+
+/* -- watch handover weather card -------------------------------------------------------- */
+.cockpit-wx-summary {
+  background: #0d1a26;
+  border: 2px solid #3a6d99;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cockpit-wx-summary--old {
+  border-color: #c98a00;
+}
+
+.cockpit-wx-summary h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.cockpit-wx-meta {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.cockpit-wx-old {
+  color: #ffc04d;
+  font-weight: 700;
+}
+
+.cockpit-wx-fields {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1rem;
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.cockpit-wx-fields dt {
+  font-weight: 700;
+  color: #9fd0ff;
+}
+
+.cockpit-wx-fields dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* -- sail plan + incident forms ------------------------------------------------------- */
+.cockpit-sail-list {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cockpit-sail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: #111;
+  border: 2px solid #444;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  min-height: 64px;
+}
+
+.cockpit-sail-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.2rem;
+  flex: 1;
+  min-height: 48px;
+}
+
+.cockpit-sail-toggle input {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.cockpit-sail-reef {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.cockpit-sail-reef select {
+  font-size: 1.2rem;
+  min-height: 48px;
+  padding: 0.3rem 0.6rem;
+}
+
+.cockpit-notes-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.cockpit-port-input,
+.cockpit-notes-label input,
+.cockpit-notes-label textarea {
+  font-size: 1.2rem;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 2px solid #555;
+  background: #111;
+  color: #fff;
+  width: 100%;
+}
+
+.cockpit-entry-type-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.cockpit-entry-type-toggle button {
+  flex: 1;
+  background: #111;
+  border: 2px solid #555;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.75rem;
+  min-height: 56px;
+  cursor: pointer;
+}
+
+.cockpit-entry-type-toggle button.active {
+  background: #3a2a10;
+  border-color: #d99a1e;
+}
+
+/* -- tablet "work" layout ------------------------------------------------------------- */
+@media (min-width: 700px) {
+  .cockpit-app {
+    padding: 1rem 1.5rem 2rem;
+  }
+
+  .cockpit-home-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cockpit-home-tile {
+    min-height: 180px;
+  }
+}
+
+/* Landscape tablet (e.g. 1280 x 800): use the width, keep tiles short enough to fit. */
+@media (min-width: 1000px) and (orientation: landscape) {
+  .cockpit-home-tile {
+    min-height: 150px;
+  }
+}
+
+/* Phone: no indent under the checkbox - the width is better spent on the words. */
+@media (max-width: 499px) {
+  .cockpit-app .step-detail {
+    margin-left: 0;
+  }
+}
+
+/* -- boat automation: alarms + mode (BoatStrip.tsx, v4 2026-10-05) ------------------------ */
+.cockpit-alarms {
+  max-width: 1100px;
+  margin: 0 auto 0.75rem;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  border: 3px solid #888;
+  background: #1a1a1a;
+}
+.cockpit-alarms--p1 { border-color: #ff3b3b; background: #4a0000; }
+.cockpit-alarms--p2 { border-color: #ffb020; background: #4a2c00; }
+.cockpit-alarms ul { list-style: none; margin: 0; padding: 0; }
+.cockpit-alarms li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.6rem;
+  padding: 0.35rem 0;
+  font-size: 1.2rem;
+}
+.cockpit-alarms li.acked { opacity: 0.6; }
+.cockpit-alarm-text { flex: 1 1 20rem; min-width: 0; overflow-wrap: anywhere; }
+.cockpit-alarm-acked { font-size: 1rem; color: #ccc; }
+.cockpit-sev {
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 6px;
+  padding: 0.1rem 0.5rem;
+  background: #555;
+  color: #fff;
+}
+.cockpit-sev--p1 { background: #ff3b3b; }
+.cockpit-sev--p2 { background: #ffb020; color: #000; }
+.cockpit-sev--test { background: #2a6fdb; margin-left: 0.4rem; }
+.cockpit-alarm-ack {
+  margin-top: 0.5rem;
+  width: 100%;
+  min-height: 56px;
+  background: #000;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.cockpit-alarm-ack:disabled { opacity: 0.6; }
+.cockpit-boat-down { max-width: 1100px; margin: 0 auto 0.75rem; }
+
+/* v7: the cold boxes' EXPECTED? question (RestockQuestion.tsx, WF-502) */
+.cockpit-restock {
+  max-width: 1100px;
+  margin: 0 auto 0.75rem;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  border: 3px solid #4da3ff;
+  background: #002a4a;
+}
+.cockpit-restock-box + .cockpit-restock-box { margin-top: 0.75rem; }
+.cockpit-restock-q { margin: 0 0 0.5rem; font-size: 1.25rem; }
+.cockpit-restock-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.cockpit-restock-buttons button {
+  flex: 1 1 12rem;
+  min-height: 64px;
+  border-radius: 10px;
+  border: 3px solid #fff;
+  background: #000;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cockpit-restock-buttons button small { font-size: 0.95rem; font-weight: 400; color: #ccc; }
+.cockpit-restock-buttons button.no { border-color: #ffb020; }
+.cockpit-restock-buttons button:disabled { opacity: 0.6; }
+
+.cockpit-mode-card {
+  background: #111;
+  border: 2px solid #555;
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+.cockpit-mode-now { font-size: 1.3rem; margin-bottom: 0.6rem; }
+.cockpit-mode-now strong { font-size: 1.5rem; margin-left: 0.4rem; }
+.cockpit-mode-hint { color: #ffb020; font-size: 1.1rem; }
+.cockpit-mode-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
+  gap: 0.5rem;
+}
+.cockpit-mode-buttons button {
+  min-height: 56px;
+  background: #000;
+  border: 2px solid #666;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cockpit-mode-buttons button.active {
+  background: #0a4d1c;
+  border-color: #3ddc6a;
+}
+.cockpit-mode-buttons button:disabled { opacity: 0.6; }
+
+.cockpit-handover-card { margin-bottom: 1rem; }
+
+/* -- Sail Plan v2 (2026-10-05) ------------------------------------------------------------ */
+.cockpit-sail-now { font-size: 1.3rem; margin: 0 0 1rem; }
+.cockpit-pick { margin-bottom: 0.9rem; }
+.cockpit-pick-label { font-weight: 700; color: #9fd0ff; margin-bottom: 0.35rem; }
+
+.cockpit-this-watch { list-style: none; margin: 0 0 0.75rem; padding: 0; font-size: 1.1rem; }
+.cockpit-this-watch li { padding: 0.25rem 0; }
+.cockpit-sev--failure, .cockpit-sev--incident { background: #b35c00; }
+.cockpit-sev--info, .cockpit-sev--observation { background: #444; }
+
+/* -- Tanks screen (TanksScreen.tsx, 2026-10-09): levels + the 'Filling' / 'Stop' tap ---------- */
+.cockpit-tank-wm { margin-bottom: 0.8rem; }
+.cockpit-tank-row { cursor: pointer; align-items: stretch; }
+.cockpit-tank-row--filling { border-color: #2ab45c; }
+.cockpit-tank-row-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.cockpit-tank-name { font-weight: 700; }
+.cockpit-tank-level { display: flex; align-items: center; gap: 0.75rem; width: 100%; }
+.cockpit-tank-bar {
+  flex: 1 1 auto;
+  height: 0.9rem;
+  border: 1px solid #666;
+  border-radius: 6px;
+  background: #222;
+  overflow: hidden;
+}
+.cockpit-tank-bar-fill { height: 100%; }
+.cockpit-tank-bar-fill--fuel { background: #c98a1a; }
+.cockpit-tank-bar-fill--water { background: #2b7fd4; }
+.cockpit-tank-pct { min-width: 4.5rem; text-align: right; font-size: 1.1rem; }
+.cockpit-tank-level--big { margin: 0.5rem 0 1rem; }
+.cockpit-tank-level--big .cockpit-tank-bar { height: 2rem; border-radius: 10px; }
+.cockpit-tank-level--big .cockpit-tank-pct { font-size: 2rem; font-weight: 700; min-width: 7rem; }
+.cockpit-tank-state { font-size: 1.25rem; }
+.cockpit-fill-tap {
+  flex: 0 0 auto;
+  min-height: 52px;
+  min-width: 8.5rem;
+  border-radius: 10px;
+  border: 3px solid #2ab45c;
+  background: #145c2e;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.cockpit-fill-tap--stop { border-color: #ff6b6b; background: #5a1414; }
+.cockpit-fill-tap:disabled { opacity: 0.45; }
+.cockpit-fill-tap--wm { border-color: #2b7fd4; background: #0d2a4a; }
+.cockpit-fill-tap--wm:disabled { opacity: 0.8; cursor: default; }
+.cockpit-fill-focus-tap { margin-top: 1.25rem; }
+.cockpit-fill-focus-tap .cockpit-fill-tap { width: 100%; min-height: 64px; font-size: 1.35rem; }

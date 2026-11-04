@@ -1,0 +1,46 @@
+.app-header {
+  padding: 1rem;
+}
+.app-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 0.75rem;
+}
+.app-header h1 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+.settings-btn {
+  background: transparent;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #94a3b8;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.settings-btn.setup {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+  font-weight: 600;
+}
+.app-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+.app-tabs button {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #94a3b8;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.app-tabs button.active {
+  background: #334155;
+  color: #e2e8f0;
+  border-color: #475569;
+}

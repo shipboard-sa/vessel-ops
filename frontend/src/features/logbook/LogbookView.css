@@ -1,0 +1,107 @@
+/*
+ * Purpose: Styles for the desktop Ship's Log tab (LogbookView.tsx) - day groups, entry rows by kind, status pills
+ *   (the owner's five statuses), the failure register groups, the entry detail and the WF-807 notification journal table.
+ * Version: v4 (2026-10-30) - v4: WF-807 notification journal table styles. v3 (2026-10-05) - v3: status-change rows, sail / engine rows. v2 (2026-10-05) - v2: the Passages view and departure / arrival rows. v1 (2026-10-05)
+ * Scope: PRODUCTION - mx-inv frontend, logbook feature.
+ * Architecture: Imported by features/logbook/LogbookView.tsx; reuses the Log tab's shared classes from
+ *   features/schedule/ScheduleBoard.css (completion-log-views, completion-log-report, historical-form ...).
+ * Invocation: bundled by Vite with the frontend (`npm run build`).
+ */
+.logbook { padding: 0 1rem 2rem; }
+.log-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 0.6rem; }
+.log-head .completion-log-views { margin: 0; }
+.log-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.2rem; margin: 0 0 0.8rem; font-size: 0.88rem; }
+.log-filters select, .log-filters input[type='date'] { min-height: 2.2rem; }
+.log-system-filter { display: flex; align-items: flex-end; gap: 0.5rem; min-width: 16rem; }
+.log-check { display: flex; align-items: center; gap: 0.3rem; }
+
+.log-day h3 { display: flex; align-items: baseline; gap: 0.5rem; margin: 1rem 0 0.3rem; font-size: 0.95rem;
+              border-bottom: 1px solid #334155; padding-bottom: 0.2rem; }
+.log-day-print { margin-left: auto; font-size: 0.78rem; font-weight: 400; color: #93c5fd; text-decoration: none; }
+.log-day-print:hover { text-decoration: underline; }
+.log-day ul, .log-register-group ul { list-style: none; margin: 0; padding: 0; }
+
+.log-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.2rem 0.6rem; padding: 0.3rem 0 0.3rem 0.6rem;
+           border-left: 3px solid #334155; margin: 0 0 0.2rem; font-size: 0.88rem; }
+.log-row--failure { border-left-color: #ef4444; }
+.log-row--incident { border-left-color: #f97316; }
+.log-row--observation { border-left-color: #38bdf8; }
+.log-row--watch { border-left-color: #22c55e; }
+.log-row--event { border-left-color: #a78bfa; }
+.log-row--status { border-left-color: #1e293b; padding-top: 0.1rem; padding-bottom: 0.1rem; font-size: 0.8rem; }
+.log-deckline { color: #94a3b8; text-align: left; font-size: inherit; border: none; background: none; padding: 0; cursor: pointer; }
+.log-deckline:hover { color: #e2e8f0; }
+.log-time { color: #64748b; font-variant-numeric: tabular-nums; min-width: 4.2rem; }
+.log-kind { color: #94a3b8; font-size: 0.8rem; min-width: 7rem; }
+.log-title { font-weight: 600; text-align: left; }
+.log-system { color: #94a3b8; font-size: 0.8rem; }
+.log-ref { margin-left: auto; color: #475569; font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+
+.log-sev { font-size: 0.7rem; font-weight: 700; border: 1px solid #64748b; border-radius: 3px; padding: 0 0.3rem; color: #cbd5e1; }
+.log-sev--P1 { border-color: #ef4444; color: #fca5a5; }
+.log-sev--P2 { border-color: #f97316; color: #fdba74; }
+.log-sev--test { border-color: #ca8a04; color: #fde047; }
+
+.log-pill { display: inline-block; font-size: 0.72rem; font-weight: 600; border-radius: 999px; padding: 0.05rem 0.55rem;
+            background: #334155; color: #e2e8f0; white-space: nowrap; }
+.log-pill--broke { background: #7f1d1d; color: #fecaca; }
+.log-pill--parts-ordered { background: #78350f; color: #fde68a; }
+.log-pill--deferred { background: #1e3a8a; color: #bfdbfe; }
+.log-pill--accepted { background: #334155; color: #cbd5e1; }
+.log-pill--fixed { background: #14532d; color: #bbf7d0; }
+
+.log-register-group { margin: 0.6rem 0; }
+.log-register-group summary { cursor: pointer; padding: 0.3rem 0; font-size: 0.95rem; }
+.log-register-group ul { margin-top: 0.3rem; }
+
+.log-detail { max-width: 52rem; }
+.log-detail h2 { margin: 0.4rem 0 0.2rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.log-detail h3 { margin: 1.2rem 0 0.4rem; font-size: 0.95rem; color: #cbd5e1; }
+.log-detail > p { margin: 0.25rem 0; font-size: 0.9rem; }
+.log-detail-meta { font-size: 0.82rem; }
+.log-body { white-space: pre-wrap; background: #1e293b; border: 1px solid #334155; border-radius: 6px;
+            padding: 0.6rem 0.8rem; margin: 0.6rem 0; font-size: 0.9rem; }
+.log-stamp { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.4rem 1rem; margin: 0; }
+.log-stamp dt { color: #64748b; font-size: 0.75rem; }
+.log-stamp dd { margin: 0; font-size: 0.9rem; }
+.log-card { margin: 0.6rem 0; font-size: 0.82rem; }
+.log-card summary { cursor: pointer; color: #93c5fd; }
+.log-card pre { max-height: 20rem; overflow: auto; background: #020617; padding: 0.6rem; border-radius: 6px; }
+.log-chain { margin: 0 0 0.8rem; padding-left: 1.4rem; font-size: 0.88rem; }
+.log-chain li { margin: 0.2rem 0; }
+.log-status-form { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.5rem 1rem; }
+.log-status-form label { margin: 0; }
+.log-status-form label:nth-of-type(2) { flex: 1 1 18rem; }
+.log-form-buttons { display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem; }
+.log-append-note { margin-top: 1.2rem; }
+
+/* v2: passages (schema v38) */
+.log-row--departure, .log-row--arrival { border-left-color: #14b8a6; border-left-width: 5px; }
+.log-row--departure .log-title, .log-row--arrival .log-title { color: #5eead4; }
+.log-passage-now { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 1rem; padding: 0.7rem 0.9rem;
+                   margin: 0 0 0.8rem; background: #0f2a2a; border: 1px solid #115e59; border-radius: 8px; }
+.log-passage-now strong { font-size: 1.05rem; color: #e2e8f0; }
+.log-passage-now button { margin-left: auto; }
+.log-passages { list-style: none; margin: 0; padding: 0; }
+.log-passage { border-left: 4px solid #14b8a6; padding: 0.4rem 0 0.4rem 0.7rem; margin: 0 0 0.6rem; }
+.log-passage--underway { border-left-color: #f59e0b; }
+.log-passage-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.7rem; }
+.log-passage-head .log-day-print { margin-left: 0; }
+
+/* v3 (the owner's review) */
+.log-row--change { border-left-color: #ef4444; border-left-style: dotted; }
+.log-row--change .log-title { font-weight: 500; }
+.log-row--sail { border-left-color: #0ea5e9; }
+.log-row--engine { border-left-color: #94a3b8; }
+
+/* v4: WF-807 notification journal table */
+.log-notif-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.log-notif-table th { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 2px solid #334155; color: #94a3b8;
+                       font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.log-notif-table td { padding: 0.3rem 0.5rem; border-bottom: 1px solid #1e293b; vertical-align: baseline; }
+.log-notif-table tbody tr:hover { background: #1e293b; }
+.log-notif--test { opacity: 0.6; }
+.log-notif-path { color: #94a3b8; font-family: monospace; font-size: 0.78rem; max-width: 16rem;
+                  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.log-notif-src { color: #94a3b8; font-size: 0.82rem; max-width: 12rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.log-notif-pos { color: #64748b; font-variant-numeric: tabular-nums; font-size: 0.8rem; white-space: nowrap; }

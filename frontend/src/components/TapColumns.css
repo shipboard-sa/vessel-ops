@@ -1,0 +1,185 @@
+/*
+ * Purpose: Styles for the shared tap-columns kit (components/TapColumns.tsx) and every tree view
+ *   built on it: the storage columns + container picker + Edit Storage Structure panel, and the
+ *   System › Device picker.
+ * Version: v3 (2026-09-24) - v3: moved to components/ when the view was shared with systems; adds
+ *   the overlay search box. v2 same day: split out of ContainerCascade.css for StorageColumns.
+ * Scope: PRODUCTION - mx-inv frontend, shared.
+ * Architecture: Imported by components/TapColumns.tsx (so every user gets it). Dark theme matching
+ *   SearchPick.css. Controls are styled here, not inherited: overlays are portalled to <body> and
+ *   the inline Edit Storage Structure must not pick up host form rules either. Under 760px only the
+ *   active column shows (cc-cols--stepN picks which).
+ */
+
+/* ---- trigger (ContainerPicker, SystemPicker) ---- */
+.cc-trigger {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  min-width: 18rem; max-width: 100%; text-align: left;
+  padding: 0.45rem 0.7rem; cursor: pointer;
+}
+.cc-trigger-label { flex: 1; white-space: normal; }
+.cc-trigger-label--empty { color: #94a3b8; font-style: italic; }
+.cc-trigger-change { color: #7dd3fc; font-size: 0.85em; }
+.cc-trigger:disabled { opacity: 0.6; cursor: default; }
+
+/* ---- overlay (picker + move dialogs) ---- */
+.cc-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(2, 6, 23, 0.75);
+  display: flex; align-items: stretch; justify-content: center;
+  padding: 1rem;
+}
+.cc-sheet {
+  display: flex; flex-direction: column;
+  width: 100%; max-width: 1200px;
+  background: #0f172a; color: #e2e8f0; font-family: inherit;
+  border: 1px solid #334155; border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+.cc-sheet .cc-cols { flex: 1; min-height: 0; }
+.cc-head {
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  padding: 0.8rem 1rem; border-bottom: 1px solid #1e293b;
+}
+.cc-head strong { font-size: 1.15rem; }
+.cc-path { flex: 1; color: #94a3b8; }
+.cc-favs {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  padding: 0.7rem 1rem; border-bottom: 1px solid #1e293b;
+}
+.cc-chip {
+  padding: 0.5rem 0.8rem; border-radius: 999px;
+  background: #1e293b; border: 1px solid #334155; color: #e2e8f0;
+  font: inherit; cursor: pointer;
+}
+.cc-chip:hover { background: #273449; }
+.cc-chip--on { border-color: #7dd3fc; color: #7dd3fc; }
+.cc-chip--none { color: #94a3b8; font-style: italic; }
+
+/* ---- overlay search (systems) ---- */
+.cc-search { padding: 0.7rem 1rem; border-bottom: 1px solid #1e293b; }
+.cc-search input {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: 1.05rem;
+  background: #0b1222; color: #e2e8f0; border: 1px solid #475569; border-radius: 6px; padding: 0.55rem 0.7rem;
+}
+.cc-results { flex: 1; min-height: 0; overflow-y: auto; padding: 0.5rem 1rem 1rem; }
+
+/* ---- own controls ---- */
+.cc-btn {
+  background: #334155; color: #e2e8f0; border: 1px solid #475569; border-radius: 6px;
+  padding: 0.45rem 0.8rem; font: inherit; cursor: pointer;
+}
+.cc-btn:hover:not(:disabled) { background: #475569; }
+.cc-btn:disabled { opacity: 0.45; cursor: default; }
+.cc-btn--danger { border-color: #7f1d1d; color: #fca5a5; }
+.cc-btn--danger:hover:not(:disabled) { background: #450a0a; }
+.cc-new input, .cc-new select, .cc-panel input, .cc-panel select, .cc-panel textarea {
+  background: #0b1222; color: #e2e8f0; border: 1px solid #475569; border-radius: 6px;
+  padding: 0.45rem 0.6rem; font: inherit;
+}
+
+/* ---- columns ---- */
+.cc-cols {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: #0f172a; color: #e2e8f0;
+}
+.cc-cols--depth2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cc-cols--depth1 { grid-template-columns: minmax(0, 1fr); }
+.cc-col {
+  overflow-y: auto; padding: 0.5rem 0.6rem 1rem;
+  border-right: 1px solid #1e293b;
+}
+.cc-col:last-child { border-right: none; }
+.cc-cols .cc-col h3 {
+  position: sticky; top: -0.5rem; z-index: 1;
+  margin: 0 0 0.4rem; padding: 0.5rem 0.4rem;
+  background: #0f172a; color: #94a3b8;
+  font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.cc-back { display: none; background: none; border: none; color: #7dd3fc; font: inherit; cursor: pointer; padding: 0 0.3rem 0 0; }
+
+.cc-row {
+  display: flex; align-items: stretch;
+  margin: 0 0 3px;
+  background: #1e293b; border: 1px solid #273449; border-radius: 6px;
+}
+.cc-row:hover { background: #273449; }
+.cc-row-main {
+  flex: 1; display: flex; align-items: center; gap: 0.5rem;
+  min-height: 2.9rem; padding: 0.55rem 0.7rem; text-align: left;
+  background: none; border: none; color: #e2e8f0;
+  font: inherit; font-size: 1.05rem; cursor: pointer;
+}
+.cc-row-main:focus-visible { outline: 2px solid #60a5fa; outline-offset: -2px; border-radius: 6px; }
+.cc-row--on, .cc-row--on:hover { background: #1d4ed8; border-color: #60a5fa; }
+.cc-row--on .cc-row-main { color: #fff; font-weight: 600; }
+.cc-row--on .cc-count, .cc-row--on .cc-chev, .cc-row--on .cc-dim { color: #dbeafe; }
+.cc-row--off { opacity: 0.5; }
+.cc-row--off .cc-row-main { cursor: default; }
+.cc-row-label { flex: 1; }
+.cc-count { color: #64748b; font-size: 0.85em; }
+.cc-chev { color: #475569; }
+.cc-tag { color: #fbbf24; font-size: 0.8em; border: 1px solid #78350f; border-radius: 4px; padding: 0 0.3rem; }
+.cc-star {
+  display: flex; align-items: center; justify-content: center;
+  min-width: 2.9rem; background: none; border: none; border-left: 1px solid #273449;
+  color: #64748b; font-size: 1.3rem; cursor: pointer;
+}
+button.cc-star:hover { color: #fbbf24; }
+.cc-star--on { color: #fbbf24; }
+.cc-newrow {
+  display: block; width: 100%; min-height: 2.9rem; margin: 0 0 3px;
+  padding: 0.55rem 0.7rem; text-align: left;
+  background: #14291f; border: 1px solid #166534; border-radius: 6px;
+  color: #86efac; font: inherit; font-size: 1.05rem; font-weight: 600; cursor: pointer;
+}
+.cc-newrow:hover { background: #1a3a2a; }
+.cc-newrow--plain { background: #1e293b; border-color: #334155; color: #94a3b8; font-weight: 400; font-style: italic; }
+.cc-newrow--plain:hover { background: #273449; }
+.cc-dim { color: #64748b; }
+.cc-hint { padding: 0.5rem 0.7rem; }
+.cc-new {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;
+  padding: 0.5rem; margin-bottom: 0.4rem;
+  background: #14213a; border: 1px solid #334155; border-radius: 6px;
+}
+.cc-new input { flex: 1 1 10rem; min-width: 0; }
+.cc-new-btns { display: flex; gap: 0.3rem; }
+
+/* ---- Edit Storage Structure: columns + edit panel ---- */
+.cc-manage {
+  display: grid; grid-template-columns: minmax(0, 3fr) minmax(16rem, 1fr);
+  border: 1px solid #334155; border-radius: 10px; overflow: hidden;
+  background: #0f172a;
+}
+.cc-manage .cc-cols { height: 65vh; border-right: 1px solid #334155; }
+.cc-panel { padding: 0.9rem 1rem; overflow-y: auto; max-height: 65vh; color: #e2e8f0; }
+.cc-manage .cc-panel h3 { margin: 0 0 0.2rem; font-size: 1.1rem; }
+.cc-panel-kind { color: #94a3b8; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.cc-panel-path { color: #94a3b8; margin: 0 0 0.8rem; }
+.cc-field { display: flex; flex-direction: column; gap: 0.25rem; margin: 0 0 0.8rem; }
+.cc-field > span { color: #94a3b8; font-size: 0.85rem; }
+.cc-field-row { display: flex; gap: 0.4rem; }
+.cc-field-row input { flex: 1; min-width: 0; }
+.cc-panel-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.cc-panel-note { color: #94a3b8; font-size: 0.85rem; margin: 0.3rem 0; }
+.cc-panel-ok { color: #86efac; margin: 0.6rem 0 0; }
+
+@media (max-width: 1000px) {
+  .cc-manage { grid-template-columns: minmax(0, 1fr); }
+  .cc-manage .cc-cols { border-right: none; border-bottom: 1px solid #334155; height: 55vh; }
+  .cc-panel { max-height: none; }
+}
+
+/* Narrow (phone / portrait tablet): one column at a time, Back arrow in its header. */
+@media (max-width: 760px) {
+  .cc-overlay { padding: 0; }
+  .cc-sheet { border-radius: 0; }
+  .cc-cols, .cc-cols--depth2 { grid-template-columns: minmax(0, 1fr); }
+  .cc-col { display: none; border-right: none; }
+  .cc-cols--step1 .cc-col--1,
+  .cc-cols--step2 .cc-col--2,
+  .cc-cols--step3 .cc-col--3 { display: block; }
+  .cc-back { display: inline; }
+}

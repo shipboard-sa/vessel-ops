@@ -1,0 +1,193 @@
+.schedule-status {
+  padding: 0 1rem;
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+.schedule-status--error {
+  color: #f87171;
+}
+.schedule-meta {
+  padding: 0 1rem;
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* One tab per timeframe, like schedule_modules.py's st.tabs - pick a
+   timeframe and the whole working area below is dedicated to it, instead
+   of splitting the screen into 8 narrow simultaneous columns. */
+.schedule-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding: 0 1rem 0.75rem;
+}
+.schedule-tabs button {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #94a3b8;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.schedule-tabs button.active {
+  background: #334155;
+  color: #e2e8f0;
+  border-color: #475569;
+}
+.schedule-tab-count {
+  color: #64748b;
+  font-size: 0.72rem;
+}
+.schedule-tabs button.active .schedule-tab-count {
+  color: #94a3b8;
+}
+
+.schedule-workarea {
+  padding: 0 1rem 1.5rem;
+}
+.schedule-bucket-caption {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  max-width: 70ch;
+  margin: 0 0 0.5rem;
+}
+.bucket-empty {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.schedule-worklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 900px;
+}
+.schedule-worklist li {
+  background: #0f172a;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.4rem;
+}
+.schedule-worklist li:last-child {
+  margin-bottom: 0;
+}
+.schedule-worklist li.task-critical {
+  border-left: 3px solid #f87171;
+}
+
+/* v3: tasks completed today, folded away from the action lists */
+.schedule-done-today { margin-top: 1rem; color: #94a3b8; font-size: 0.85rem; }
+.schedule-done-today summary { cursor: pointer; }
+.schedule-done-today ul { list-style: none; margin: 0.4rem 0 0; padding: 0; }
+.schedule-done-today li { padding: 0.15rem 0; }
+.schedule-done-next { color: #64748b; font-size: 0.78rem; }
+
+/* v4: completion toasts + the Log tab */
+.completion-toasts { position: fixed; right: 1rem; bottom: 1rem; z-index: 50; display: flex; flex-direction: column; gap: 0.5rem; max-width: min(28rem, 92vw); }
+.completion-toast { display: flex; gap: 0.6rem; align-items: flex-start; padding: 0.6rem 0.8rem; border-radius: 8px; font-size: 0.85rem; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
+.completion-toast--ok { background: #14532d; color: #dcfce7; border: 1px solid #166534; }
+.completion-toast--error { background: #7f1d1d; color: #fee2e2; border: 1px solid #991b1b; }
+.completion-toast button { background: none; border: none; color: inherit; cursor: pointer; }
+.task-complete-warning { color: #fbbf24; }
+.completion-log-range { display: inline-block; margin: 0.4rem 0 0.8rem; font-size: 0.85rem; color: #94a3b8; }
+.completion-log-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1.2rem; }
+.completion-log-filters select { min-height: 2.4rem; max-width: 16rem; }
+.completion-day h4 { margin: 0.8rem 0 0.3rem; font-size: 0.9rem; }
+.completion-count { color: #64748b; font-weight: 400; }
+.completion-day ul { list-style: none; margin: 0; padding: 0; }
+.completion-day li { padding: 0.2rem 0; font-size: 0.85rem; }
+.completion-time { color: #64748b; margin-right: 0.6rem; font-variant-numeric: tabular-nums; }
+.completion-backdated { color: #fbbf24; }
+.completion-meta { color: #94a3b8; font-size: 0.78rem; }
+.task-completion-notes { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; margin: 0.4rem 0; }
+.task-completion-notes textarea { width: 100%; resize: vertical; }
+.completion-summary { font-size: 0.85rem; color: #cbd5e1; margin: 0 0 0.6rem; }
+.completion-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem; }
+.completion-lateness { font-size: 0.75rem; padding: 0.05rem 0.4rem; border-radius: 999px; font-weight: 600; }
+.completion-lateness--late { background: #7f1d1d; color: #fee2e2; }
+.completion-lateness--early, .completion-lateness--ontime { background: #14532d; color: #dcfce7; }
+.completion-notes, .completion-parts, .completion-void-reason { margin: 0.15rem 0 0 3.6rem; font-size: 0.8rem; color: #cbd5e1; }
+.completion-parts { color: #94a3b8; }
+.completion-row--voided .completion-title, .completion-row--voided .completion-notes, .completion-row--voided .completion-parts { text-decoration: line-through; opacity: 0.6; }
+.completion-voided-tag { font-size: 0.7rem; font-weight: 700; color: #fca5a5; border: 1px solid #991b1b; border-radius: 4px; padding: 0 0.3rem; }
+.completion-void-reason { color: #fca5a5; }
+.completion-void-btn { margin-left: auto; font-size: 0.72rem; background: none; border: 1px solid #475569; color: #94a3b8; border-radius: 4px; cursor: pointer; padding: 0 0.4rem; }
+.completion-void-form { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.3rem 0 0.3rem 3.6rem; }
+.completion-void-form input { flex: 1 1 16rem; }
+.completion-void-form .task-detail-hint { flex-basis: 100%; margin: 0; }
+
+/* Tracker #44: the printable history report link and the backfill form on the Log tab. */
+.completion-log-report {
+  padding: 0.3rem 0.7rem; border: 1px solid #475569; border-radius: 6px;
+  background: #334155; color: #e2e8f0; text-decoration: none; font-size: 0.85rem;
+  white-space: nowrap;
+}
+.completion-log-report:hover { border-color: #38bdf8; }
+.historical-form {
+  background: #0f172a; border: 1px solid #334155; border-radius: 8px;
+  padding: 0.8rem 1rem; margin: 0 0 1rem;
+}
+.historical-form label { display: block; margin: 0.4rem 0; font-size: 0.82rem; color: #94a3b8; }
+.historical-form input, .historical-form select, .historical-form textarea {
+  display: block; width: 100%; margin-top: 0.15rem; padding: 0.35rem 0.5rem;
+  background: #1e293b; border: 1px solid #334155; border-radius: 5px; color: #e2e8f0;
+  font: inherit; font-size: 0.9rem;
+}
+.historical-form-row { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.historical-form-row label { flex: 1; min-width: 12rem; }
+.historical-form .hint { color: #64748b; font-size: 0.92em; }
+.historical-form-privacy { font-size: 0.78rem; }
+.historical-form-actions { display: flex; gap: 0.5rem; margin-top: 0.6rem; }
+.historical-form-actions button {
+  padding: 0.4rem 0.9rem; border-radius: 6px; border: 1px solid #475569;
+  background: #334155; color: #e2e8f0; cursor: pointer;
+}
+.historical-form-actions button:disabled { opacity: 0.5; cursor: default; }
+
+/* Tracker #44: the shared "who did the work" box (roster + everyone already in the history). */
+.performed-by { display: block; margin: 0.4rem 0; font-size: 0.82rem; color: #94a3b8; }
+.performed-by .hint { color: #64748b; font-size: 0.92em; }
+.performed-by input {
+  display: block; width: 100%; margin-top: 0.15rem; padding: 0.35rem 0.5rem;
+  background: #1e293b; border: 1px solid #334155; border-radius: 5px; color: #e2e8f0;
+  font: inherit; font-size: 0.9rem;
+}
+.historical-form-row .performed-by { flex: 1; min-width: 12rem; margin: 0.4rem 0; }
+
+/* Schema v33: the Log's two views, and the invoices-on-file panel. */
+.completion-log-views { display: flex; gap: 0.4rem; margin: 0 0 0.6rem; }
+.completion-log-views button {
+  padding: 0.4rem 0.9rem; border-radius: 6px; border: 1px solid #475569;
+  background: #1e293b; color: #94a3b8; cursor: pointer; font: inherit; font-size: 0.9rem;
+}
+.completion-log-views button.is-active { background: #334155; color: #e2e8f0; border-color: #64748b; }
+.historical-form .invoice-form-check { display: flex; align-items: center; gap: 0.4rem; }
+.historical-form .invoice-form-check input { display: inline; width: auto; margin: 0; }
+.historical-form input:disabled { opacity: 0.5; }
+.completion-void-form select { min-height: 2.2rem; max-width: 100%; }
+.invoice-row .completion-void-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Schema v34: task outcome + follow-on tasks. */
+.outcome-picker { border: 1px solid #334155; border-radius: 6px; padding: 0.3rem 0.6rem; margin: 0.4rem 0; }
+.outcome-picker legend { font-size: 0.82rem; color: #94a3b8; padding: 0 0.3rem; }
+.outcome-option { display: inline-flex; align-items: center; gap: 0.3rem; margin-right: 0.9rem;
+  font-size: 0.85rem; min-height: 2rem; cursor: pointer; }
+.outcome-option--problem_found { color: #fca5a5; }
+.outcome-option--partial { color: #fcd34d; }
+.follow-on-editor { border-left: 3px solid #f59e0b; padding: 0.2rem 0 0.2rem 0.6rem; margin: 0.4rem 0; }
+.follow-on-row { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin: 0.3rem 0; }
+.follow-on-row input:not([type=checkbox]) { flex: 2 1 12rem; min-height: 2.2rem; }
+.follow-on-row select { flex: 1 1 10rem; min-height: 2.2rem; max-width: 100%; }
+.follow-on-critical { display: inline-flex; align-items: center; gap: 0.2rem; }
+.historical-form .follow-on-row input:not([type=checkbox]),
+.historical-form .follow-on-row select { display: inline-block; width: auto; margin-top: 0; }
+.historical-form .follow-on-critical input { display: inline; width: auto; margin: 0; }
+.historical-form .outcome-option input { display: inline; width: auto; margin: 0; }
+.completion-outcome { font-size: 0.75rem; border-radius: 4px; padding: 0 0.35rem; margin-left: 0.3rem; }
+.completion-outcome--problem_found { background: #7f1d1d; color: #fecaca; }
+.completion-outcome--partial { background: #78350f; color: #fde68a; }
+.completion-follow-ons { color: #fbbf24; }
+.task-follow-on-origin { color: #fbbf24; font-size: 0.85rem; margin: 0.2rem 0 0.4rem; }

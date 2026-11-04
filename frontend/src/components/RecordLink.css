@@ -1,0 +1,38 @@
+/*
+ * Purpose: Styles for RecordLink / CheckRow / SystemTaskLabel (tappable record names).
+ * Version: v1 (2026-09-23)
+ * Scope: PRODUCTION - mx-inv frontend, shared.
+ * Architecture: Imported by components/RecordLink.tsx. Inline text link, not a boxed button, so a
+ *   name reads as text but taps like a link; CheckRow gives the box a finger-sized hit area of its own.
+ */
+button.record-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: #7dd3fc;
+  cursor: pointer;
+  text-align: left;
+}
+button.record-link:hover { text-decoration: underline; }
+button.record-link code { color: inherit; }
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.check-row-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  cursor: pointer;
+}
+.check-row-box input { width: 1.15rem; height: 1.15rem; margin: 0; cursor: pointer; }
+
+.system-task-label .system-chip code { font-size: 0.85em; }
+.system-task-sep { color: #64748b; }

@@ -1,0 +1,11 @@
+# Vessel Operations Panel - runtime dependencies
+streamlit>=1.37
+pandas>=2.2
+requests>=2.31        # SignalK_Link.py engine-hours sync
+
+# backend/ - FastAPI + React rewrite (mx-inv-webapp branch)
+fastapi>=0.115
+uvicorn[standard]>=0.30
+httpx>=0.27          # reverse-proxies /routing/* to the routing app's own process
+
+# import tooling (not app runtime): python-docx, pypdf

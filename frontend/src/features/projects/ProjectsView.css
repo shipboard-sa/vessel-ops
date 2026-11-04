@@ -1,0 +1,301 @@
+.projects-view {
+  padding: 0 1rem 2rem;
+}
+.projects-view h2 {
+  font-size: 1rem;
+  margin: 1rem 0 0.5rem;
+}
+.link-button {
+  background: none;
+  border: 1px dashed #475569;
+  border-radius: 6px;
+  color: #94a3b8;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.82rem;
+  margin-top: 0.5rem;
+}
+
+.project-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.project-card {
+  background: #1e293b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.project-card-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #e2e8f0;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+}
+.project-card-header:hover {
+  background: #263449;
+}
+.project-card-meta {
+  color: #94a3b8;
+  font-size: 0.78rem;
+}
+
+.project-editor {
+  padding: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.project-screen-title {
+  margin: 0.25rem 0 0;
+  font-size: 1.05rem;
+}
+.project-editor-row {
+  display: flex;
+  gap: 1rem;
+}
+.project-editor-row > label {
+  flex: 1;
+}
+.project-editor label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+.project-editor input,
+.project-editor select,
+.project-editor textarea {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+}
+.project-parked-note {
+  background: #1e2942;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.8rem;
+  color: #93c5fd;
+  margin: 0;
+}
+.project-editor-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.project-editor-actions button {
+  flex: 1;
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #475569;
+  background: #334155;
+  color: #e2e8f0;
+  cursor: pointer;
+}
+.project-editor-actions button.danger {
+  border-color: #7f1d1d;
+  background: #450a0a;
+  color: #fca5a5;
+}
+.project-editor h4 {
+  margin: 0.4rem 0 0.2rem;
+  font-size: 0.85rem;
+}
+.project-tasks-empty {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin: 0;
+}
+.project-tasks-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.82rem;
+  /* no height cap: a task opens as its own full screen now, but a
+     viewport-sized scroll box is the trap the checklist steps list hit - the
+     page scrolls instead. */
+}
+.project-tasks-list li {
+  border-bottom: 1px solid #24304a;
+}
+.project-task-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0;
+}
+.project-task-toggle {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  color: #e2e8f0;
+  text-align: left;
+  cursor: pointer;
+  padding: 0.15rem 0;
+  font: inherit;
+}
+.project-task-caret {
+  color: #64748b;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+.project-tasks-list code {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+.project-task-row > button {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.project-task-row > button:hover {
+  color: #f87171;
+}
+.project-task-hint {
+  color: #64748b;
+  font-size: 0.76rem;
+  margin: 0 0 0.5rem;
+  padding-left: 1.2rem;
+}
+.project-task-open {
+  padding-bottom: 0.4rem;
+}
+
+.add-tasks-control {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+.add-tasks-control select {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.8rem;
+}
+.add-tasks-control select[multiple] {
+  min-width: 220px;
+  height: 100px;
+}
+.add-tasks-control button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  align-self: center;
+}
+
+
+/* ---- task editor / new-task form / add-existing picker (2026-09-18) ---- */
+.project-new-task {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+  border: 1px solid var(--border, #334);
+  border-radius: 6px;
+}
+.project-new-task label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.add-tasks-picker {
+  margin-top: 1rem;
+}
+.add-tasks-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.add-tasks-filters input {
+  flex: 1 1 14rem;
+}
+.add-tasks-list {
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0;
+  max-height: 16rem;
+  overflow-y: auto;
+  border: 1px solid var(--border, #334);
+  border-radius: 6px;
+}
+.add-tasks-list li label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+/* v23 project phases */
+.phase-group {
+  margin: 0.6rem 0 0.4rem;
+  padding-left: 0.6rem;
+  border-left: 3px solid #475569;
+}
+.phase-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.phase-title {
+  margin: 0;
+  font-size: 0.95rem;
+}
+.phase-title--none {
+  color: #94a3b8;
+  font-weight: 500;
+}
+.phase-meta {
+  color: #94a3b8;
+  font-size: 0.78rem;
+  flex: 1;
+}
+.phase-notes {
+  margin: 0.25rem 0 0.4rem;
+  color: #cbd5e1;
+  font-size: 0.82rem;
+  white-space: pre-wrap;
+}
+.phase-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.4rem 0;
+}
+.phase-add {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* Task-row phase pick (PhasePick, SearchPick-based) - wider than the old 9rem select cell. */
+.phase-pick-cell { flex-shrink: 0; width: 14rem; max-width: 45%; font-size: 0.8rem; }
+.phase-pick-cell .search-pick { min-width: 0; width: 100%; }

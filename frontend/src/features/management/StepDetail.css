@@ -1,0 +1,33 @@
+/* Tracker #28: a checklist step's Details screen and the shared "What you need" block. */
+.step-detail-screen { padding: 0 0.25rem 1rem; max-width: 60rem; }
+.step-detail-screen h2 { margin: 0.2rem 0 0.3rem; }
+.step-detail-screen h3, .task-needs h3 { margin: 1rem 0 0.4rem; font-size: 1.05rem; }
+.step-detail-howto p { white-space: pre-wrap; line-height: 1.5; margin: 0.3rem 0; }
+.step-detail-notes { color: #fcd34d; }
+.step-detail-refs ul { list-style: none; padding: 0; margin: 0; }
+.step-detail-refs li { padding: 0.2rem 0; }
+
+.task-needs { margin: 0.5rem 0 1rem; }
+.task-needs-head { display: flex; align-items: baseline; gap: 1rem; }
+.task-needs-head h3 { margin-right: auto; }
+.task-needs-list { list-style: none; padding: 0; margin: 0; }
+.task-needs-list > li { padding: 0.45rem 0.6rem; margin-bottom: 0.3rem; border: 1px solid #334155; border-radius: 0.4rem; background: #1e293b; }
+.task-needs-list > li.task-needs-short { border-color: #f59e0b; }
+.task-needs-main { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 1rem; justify-content: space-between; }
+.task-needs-name { font-weight: 600; }
+.task-needs-qty { color: #cbd5e1; font-size: 0.92rem; }
+.task-needs-flag { color: #fbbf24; }
+.task-needs-where { margin-top: 0.15rem; font-size: 0.85rem; color: #94a3b8; }
+.task-needs-where--none { font-style: italic; }
+.task-needs-edit { display: inline-flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+.task-needs-edit input[type="number"] { width: 5rem; }
+.task-needs-edit input[type="text"] { width: 13rem; }
+.task-needs-add { margin-top: 0.5rem; }
+.task-needs-add > input { width: 100%; max-width: 30rem; }
+
+/* The step row's "Details" button inside a checklist. */
+.step-open-details { font-size: 0.85rem; padding: 0.2rem 0.5rem; white-space: nowrap; }
+
+/* Cockpit tablet: bigger touch targets for the same screen. */
+.cockpit-checklist-run .step-detail-screen { font-size: 1.15rem; }
+.cockpit-checklist-run .step-open-details { font-size: 1rem; padding: 0.45rem 0.8rem; }

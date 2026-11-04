@@ -1,0 +1,45 @@
+/*
+ * Purpose: Styles for the shared SearchPick control (type-to-search pick list, "＋ New" first).
+ * Version: v1 (2026-09-23)
+ * Scope: PRODUCTION - mx-inv frontend, shared.
+ * Architecture: Imported by components/SearchPick.tsx. Dark theme to match the app; the list is an
+ *   in-flow dropdown (not a portal) so it works inside focus screens and forms alike.
+ */
+.search-pick { position: relative; display: inline-block; min-width: 16rem; max-width: 100%; }
+.search-pick--creating { display: block; }
+.search-pick-input { width: 100%; box-sizing: border-box; }
+.search-pick-input::placeholder { color: #94a3b8; }
+.search-pick-list {
+  position: absolute;
+  z-index: 30;
+  left: 0;
+  right: 0;
+  min-width: 18rem;
+  margin: 2px 0 0;
+  padding: 0.2rem 0;
+  list-style: none;
+  max-height: 18rem;
+  overflow-y: auto;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+.search-pick-row {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #e2e8f0;
+  padding: 0.45rem 0.7rem;
+  font: inherit;
+  cursor: pointer;
+}
+.search-pick-row:hover, .search-pick-row:focus { background: #1e293b; outline: none; }
+.search-pick-row--on { color: #7dd3fc; font-weight: 600; }
+.search-pick-row--new { color: #86efac; font-weight: 600; border-bottom: 1px solid #1e293b; }
+.search-pick-row--none { color: #94a3b8; font-style: italic; }
+.search-pick-hint { color: #64748b; font-size: 0.85em; }
+.search-pick-more { color: #64748b; font-size: 0.85em; padding: 0.3rem 0.7rem; }
+.search-pick-field { display: inline-flex; flex-direction: column; gap: 0.15rem; }

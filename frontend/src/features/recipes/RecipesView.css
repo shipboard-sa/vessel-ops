@@ -1,0 +1,429 @@
+.recipes-view {
+  padding: 0 1rem 2rem;
+}
+.recipes-view h2 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+.link-button {
+  background: none;
+  border: 1px dashed #475569;
+  border-radius: 6px;
+  color: #94a3b8;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.82rem;
+  margin: 0.5rem 0;
+}
+
+.recipe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: #1e293b;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  max-width: 800px;
+}
+.recipe-form label,
+.recipe-edit-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+.recipe-form input,
+.recipe-form select,
+.recipe-form textarea,
+.recipe-edit-form input,
+.recipe-edit-form select,
+.recipe-edit-form textarea {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+}
+.recipe-form textarea,
+.recipe-edit-form textarea {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.82rem;
+}
+.recipe-warning {
+  color: #fbbf24;
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+.recipe-filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.recipe-filters input[type="text"] {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  flex: 1;
+  min-width: 200px;
+}
+.multi-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+.multi-picker select {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  min-width: 150px;
+  height: 60px;
+}
+
+.recipe-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.recipe-card {
+  background: #1e293b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.recipe-card-header {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #e2e8f0;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+.recipe-card-header:hover {
+  background: #263449;
+}
+.recipe-text {
+  white-space: pre-wrap;
+  font-size: 0.85rem;
+  margin: 0;
+}
+.recipe-text-block {
+  white-space: pre-wrap;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.8rem;
+  background: #0f172a;
+  border-radius: 6px;
+  padding: 0.6rem;
+  margin: 0;
+}
+.recipe-notes {
+  background: #1e2942;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.8rem;
+  color: #93c5fd;
+  margin: 0;
+}
+/* Full-screen recipe / meal-plan entry (inside <FocusScreen>, outside .recipes-view). */
+.recipe-focus {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.recipe-focus h2 {
+  font-size: 1rem;
+  margin: 0.5rem 0 0;
+}
+.recipe-focus > button {
+  align-self: flex-start;
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.recipe-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.recipe-ingredients {
+  background: #0f172a;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.recipe-ingredients-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.recipe-ingredients-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0;
+  font-size: 0.82rem;
+  border-bottom: 1px solid #1e293b;
+}
+.recipe-ingredients-list li.short {
+  color: #fca5a5;
+}
+.recipe-ingredients-list label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.recipe-ingredients-list input[type="number"] {
+  width: 4.5rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.2rem 0.4rem;
+}
+.recipe-ingredients-list .unit {
+  color: #94a3b8;
+  width: 3.5rem;
+}
+.recipe-ingredients-list .onhand {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+.recipe-ingredients-list .onhand.short {
+  color: #f87171;
+}
+.recipe-ingredients-list li.has-unit-warning {
+  flex-wrap: wrap;
+}
+.recipe-ingredients-list .unit-mismatch {
+  flex-basis: 100%;
+  margin-left: 1.4rem;
+  font-size: 0.72rem;
+  color: #fbbf24;
+}
+.recipe-bulk-note {
+  color: #94a3b8;
+  font-size: 0.78rem;
+  margin: 0;
+}
+.recipe-bulk-note .bulk-flag {
+  color: #fbbf24;
+  font-weight: 600;
+}
+.recipe-ingredients-actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+.recipe-ingredients-actions button:first-child {
+  background: #14532d;
+  border: 1px solid #166534;
+  border-radius: 6px;
+  color: #dcfce7;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.82rem;
+}
+.recipe-cook-result {
+  background: #14532d;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  color: #dcfce7;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.recipe-ingredients-review {
+  background: #0f172a;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+}
+.recipe-review-list {
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0;
+}
+.recipe-review-list li {
+  border-bottom: 1px solid #1e293b;
+  padding: 0.3rem 0;
+}
+.recipe-review-list li.excluded {
+  opacity: 0.45;
+}
+.recipe-review-exclude {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+}
+.recipe-review-raw {
+  color: #cbd5e1;
+}
+.recipe-review-fields {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.25rem 0 0 1.4rem;
+  flex-wrap: wrap;
+}
+.recipe-review-fields input[type="number"] {
+  width: 4rem;
+}
+.recipe-review-converted {
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+.recipe-review-dup-notice {
+  margin: 0.25rem 0 0 1.4rem;
+  font-size: 0.78rem;
+  color: #fbbf24;
+}
+.recipe-review-fields input,
+.recipe-review-fields select {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.78rem;
+}
+
+/* "Convert to imperial" proposal (ConvertToImperial.tsx), inside .recipe-focus. */
+.recipe-convert {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-start;
+}
+.recipe-convert button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.recipe-convert button.apply {
+  background: #14532d;
+  border-color: #166534;
+  color: #dcfce7;
+}
+.recipe-convert-panel {
+  align-items: stretch;
+  background: #0f172a;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+}
+.recipe-convert-changes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.82rem;
+  max-height: 10rem;
+  overflow-y: auto;
+}
+.recipe-convert-changes li {
+  border-bottom: 1px solid #1e293b;
+  padding: 0.15rem 0;
+}
+.recipe-convert-before {
+  color: #94a3b8;
+}
+.recipe-convert-after {
+  color: #86efac;
+  font-weight: 600;
+}
+.recipe-convert-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+.recipe-convert-text textarea {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.35rem 0.5rem;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.82rem;
+}
+.recipe-convert-actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+/* ingredient review: the parser asks about lines it is not sure of */
+.recipe-review-list li.needs-decision { border-left: 3px solid #f59e0b; padding-left: 0.5rem; }
+.recipe-review-summary { color: #fbbf24; font-size: 0.85rem; }
+.recipe-review-ask { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin: 0.3rem 0 0.2rem 1.6rem; font-size: 0.82rem; }
+.recipe-review-chip { background: #1e293b; border: 1px solid #475569; border-radius: 999px; color: #e2e8f0; padding: 0.15rem 0.6rem; cursor: pointer; font-size: 0.78rem; }
+.recipe-review-chip:hover { background: #263449; }
+.recipe-review-chip--new { border-style: dashed; color: #7dd3fc; }
+.recipe-review-new { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.6rem; margin: 0.4rem 0 0.2rem 1.6rem; padding: 0.5rem; border: 1px solid #334155; border-radius: 6px; }
+.recipe-review-new label { display: flex; flex-direction: column; font-size: 0.75rem; gap: 0.15rem; }
+.recipe-review-suspect { color: #fbbf24; font-size: 0.8rem; margin: 0.2rem 0 0.2rem 1.6rem; }
+
+/* --- Manage proteins panel (mealplan/ProteinsManager.tsx, tracker #24) --- */
+.proteins-manager { background: #1e293b; border-radius: 8px; padding: 0.7rem 0.9rem; margin: 0 0 1rem; max-width: 42rem; }
+.proteins-manager-head { display: flex; justify-content: space-between; align-items: center; }
+.proteins-list { list-style: none; margin: 0.4rem 0; padding: 0; }
+.proteins-list li { display: flex; align-items: center; gap: 0.7rem; padding: 0.25rem 0; border-top: 1px solid #24304a; }
+.proteins-list li:first-child { border-top: none; }
+.proteins-name { flex: 1; font-size: 0.9rem; }
+.proteins-add { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.5rem; }
+.proteins-add select, .proteins-add button:not(.link-button) {
+  background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #e2e8f0; padding: 0.3rem 0.6rem; font-size: 0.85rem;
+}
+
+/* tracker #71: save plan/cook-time changes back onto the recipe */
+.keep-in-recipe {
+  font-size: 0.75rem;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid #f59e0b;
+  color: #fbbf24;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.keep-in-recipe-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #f59e0b;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.08);
+  font-size: 0.85rem;
+}
+.keep-in-recipe-bar button {
+  font-weight: 600;
+}

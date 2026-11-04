@@ -1,0 +1,764 @@
+.mgmt-status {
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+.mgmt-status--error {
+  color: #f87171;
+}
+.mgmt-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem 1rem;
+  flex-wrap: wrap;
+}
+.mgmt-toolbar input,
+.mgmt-toolbar select {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+}
+.mgmt-toolbar button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.mgmt-inline-form {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 1rem 1rem;
+  padding: 0.6rem;
+  background: #1e293b;
+  border-radius: 6px;
+}
+.mgmt-inline-form input {
+  flex: 1;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.3rem 0.5rem;
+}
+.mgmt-inline-form button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
+.mgmt-body {
+  padding: 0 1rem 1rem;
+}
+.mgmt-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 75vh;
+  overflow-y: auto;
+  background: #1e293b;
+  border-radius: 8px;
+}
+.mgmt-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #334155;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.mgmt-list li:hover {
+  background: #263449;
+}
+.mgmt-list li.selected {
+  background: #334155;
+}
+.mgmt-empty {
+  color: #64748b;
+  cursor: default !important;
+}
+.mgmt-item-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mgmt-item-system {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+.mgmt-critical-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f87171;
+  flex-shrink: 0;
+}
+.task-detail {
+  background: #1e293b;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.task-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-detail-header h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+.task-detail-header button {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.task-detail label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+.task-detail input,
+.task-detail select,
+.task-detail textarea {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.4rem 0.5rem;
+  font: inherit;
+}
+.task-detail-row {
+  display: flex;
+  gap: 1rem;
+}
+.task-detail-row > label {
+  flex: 1;
+}
+.checkbox-label {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.4rem !important;
+}
+.task-detail-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+.task-detail-actions button {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #475569;
+  background: #334155;
+  color: #e2e8f0;
+  cursor: pointer;
+}
+.task-detail-actions button.danger {
+  border-color: #7f1d1d;
+  background: #450a0a;
+  color: #fca5a5;
+}
+.mgmt-placeholder {
+  align-self: start;
+}
+.system-picker-fields {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.system-picker-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  flex: 1;
+  min-width: 160px;
+}
+.system-picker-fields select {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.4rem 0.5rem;
+  font: inherit;
+}
+.system-picker-new {
+  display: flex;
+  gap: 0.3rem;
+}
+.system-picker-new input {
+  flex: 1;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.35rem 0.5rem;
+}
+.system-picker-new button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  color: #e2e8f0;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+}
+.checklist-trigger {
+  background: #0f172a;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  margin: 0.5rem 0;
+}
+.checklist-trigger h4 {
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+.checklist-trigger-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  padding: 0.2rem 0;
+}
+.checklist-trigger-row button {
+  background: #14532d;
+  border: 1px solid #166534;
+  border-radius: 4px;
+  color: #dcfce7;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.checklist-trigger-row button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.checklist-trigger-done {
+  color: #86efac;
+  font-size: 0.78rem;
+}
+.checklist-steps {
+  border-top: 1px solid #334155;
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+}
+.checklist-steps-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.checklist-steps-header h3 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.checklist-steps-header button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.included-checklists {
+  background: #0f172a;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  margin: 0.5rem 0;
+}
+.included-checklists h4 {
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+.included-checklists-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.included-checklist-toggle {
+  background: none;
+  border: none;
+  color: #7dd3fc;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.2rem 0;
+  text-align: left;
+  width: 100%;
+}
+.included-checklist-body {
+  margin: 0.3rem 0 0.5rem 1rem;
+  padding-left: 0.6rem;
+  border-left: 2px solid #334155;
+}
+.included-checklist-cycle {
+  display: block;
+  color: #fbbf24;
+  font-size: 0.85rem;
+  padding: 0.2rem 0;
+}
+.linked-tasks {
+  background: #0f172a;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  margin: 0.5rem 0;
+}
+.linked-tasks h4 {
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+.linked-tasks-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.linked-tasks-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 0;
+}
+.checklist-steps-list {
+  /* No max-height/overflow here - ChecklistSteps embeds in very
+     differently-sized containers (a compact schedule-board card, a
+     Projects task row, the full Management panel), and a vh-based cap
+     sizes against the whole browser window regardless of which one it's
+     in, making a short checklist look like it wants a full screen. Let it
+     flow with its actual container and the page scroll, same as
+     schedule-worklist. */
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0;
+}
+.checklist-steps-list li {
+  padding: 0.3rem 0;
+  font-size: 0.82rem;
+  border-bottom: 1px solid #24304a;
+}
+.step-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.step-row label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  min-width: 0;
+}
+.step-row > .step-title {
+  flex: 1;
+  min-width: 0;
+}
+/* tracker #73: the line's name opens it - looks like a link, not a button */
+.step-title--open {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  font: inherit;
+  color: #93c5fd;
+  cursor: pointer;
+}
+.step-title--open:hover {
+  text-decoration: underline;
+}
+.checklist-steps-list li.step-done .step-title {
+  color: #64748b;
+  text-decoration: line-through;
+}
+.step-detail {
+  margin: 0.15rem 0 0 1.5rem;
+  font-size: 0.74rem;
+  color: #94a3b8;
+  white-space: pre-wrap;
+}
+.step-reorder {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.step-reorder button {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 0.6rem;
+  line-height: 1;
+  padding: 0.05rem 0.2rem;
+}
+.step-reorder button:hover:not(:disabled) {
+  color: #94a3b8;
+}
+.step-reorder button:disabled {
+  color: #334155;
+  cursor: default;
+}
+.group-picker {
+  font-size: 0.72rem;
+  flex-shrink: 0;
+  max-width: 9rem;
+}
+.group-picker-new {
+  display: flex;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+.group-picker-new input {
+  font-size: 0.72rem;
+  width: 8rem;
+}
+.group-picker-new button {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+}
+.step-group {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  background: #0f172a;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.step-edit,
+.step-delete {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+.step-delete:hover {
+  color: #f87171;
+}
+.step-edit:hover {
+  color: #94a3b8;
+}
+.step-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: #0f172a;
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+}
+.step-editor label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+.step-editor input,
+.step-editor textarea {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.3rem 0.4rem;
+  font: inherit;
+}
+.step-editor-hint {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin: 0;
+}
+.step-editor-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+.step-editor-actions button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.add-step-form {
+  display: flex;
+  gap: 0.4rem;
+}
+.add-step-form input {
+  flex: 1;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.82rem;
+}
+.add-step-form button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.task-references {
+  border-top: 1px solid #334155;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+}
+.task-references-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-references-header h3 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.task-references-header button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.task-references-list {
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0;
+}
+.task-references-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  font-size: 0.82rem;
+  border-bottom: 1px solid #24304a;
+}
+.task-reference-link {
+  background: none;
+  border: none;
+  color: #7dd3fc;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  padding: 0;
+  flex: 1;
+}
+.task-reference-dangling {
+  color: #fbbf24;
+  flex: 1;
+}
+.task-reference-external {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  min-width: 0;
+}
+.task-reference-kind {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  background: #0f172a;
+  padding: 0.05rem 0.35rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.task-reference-external a {
+  color: #7dd3fc;
+}
+.task-reference-note {
+  color: #94a3b8;
+}
+.task-reference-delete {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+.task-reference-delete:hover {
+  color: #f87171;
+}
+.task-reference-form {
+  flex-wrap: wrap;
+}
+
+/* --- Management: mode tabs, light systems tree, system/device screen (v3, 2026-09-19) --- */
+.mgmt-mode-tabs { display: flex; gap: 0.4rem; padding: 0 1rem 0.75rem; }
+.mgmt-mode-tabs button {
+  background: #1e293b; border: 1px solid #334155; border-radius: 6px 6px 0 0;
+  color: #94a3b8; padding: 0.4rem 0.9rem; font-size: 0.85rem; cursor: pointer;
+}
+.mgmt-mode-tabs button.active { background: #334155; color: #e2e8f0; border-color: #475569; }
+
+.systems-list { padding-bottom: 1rem; }
+.systems-tree, .systems-tree-children { list-style: none; margin: 0; padding: 0; }
+.systems-tree { margin: 0 1rem; background: #1e293b; border-radius: 8px; }
+.systems-tree-item { border-bottom: 1px solid #24304a; }
+.systems-tree-item:last-child { border-bottom: none; }
+.systems-tree-row { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.75rem; }
+.systems-tree-children { padding: 0 0 0.3rem 1.6rem; }
+.systems-tree-children .systems-tree-row { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.systems-tree-chevron {
+  width: 1.4rem; background: none; border: none; color: #94a3b8; cursor: pointer; font-size: 0.9rem; padding: 0;
+}
+.systems-tree-chevron--none { display: inline-block; cursor: default; }
+.systems-tree-name { font-size: 0.92rem; text-align: left; background: none; border: none; padding: 0; color: #e2e8f0; cursor: pointer; }
+.systems-tree-name:hover { color: #7dd3fc; text-decoration: underline; }
+.systems-list .mgmt-toolbar input { min-width: 18rem; }
+.systems-tree-meta { color: #94a3b8; font-size: 0.78rem; }
+.systems-tree-badge {
+  font-size: 0.7rem; color: #94a3b8; border: 1px solid #475569; border-radius: 999px; padding: 0 0.45rem;
+}
+.systems-tree-badge--warn { color: #fbbf24; border-color: #92400e; }
+
+.system-screen { padding: 0 0 1rem; }
+.system-screen-header { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; }
+.system-screen-header h2 { margin: 0.2rem 0; }
+.system-screen-kind { color: #94a3b8; font-size: 0.85rem; }
+.system-controls { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 0.4rem 0 0.8rem; }
+.system-controls button, .system-controls select, .system-controls input {
+  background: #1e293b; border: 1px solid #334155; border-radius: 6px; color: #e2e8f0;
+  padding: 0.3rem 0.6rem; font-size: 0.82rem; cursor: pointer;
+}
+.system-controls input { cursor: text; }
+.system-controls button.danger, .system-delete-panel button.danger { color: #fca5a5; border-color: #7f1d1d; }
+.system-controls-inline { display: inline-flex; gap: 0.4rem; }
+.system-delete-panel { flex-basis: 100%; background: #1e293b; border-radius: 6px; padding: 0.5rem 0.75rem; }
+.system-section { background: #1e293b; border-radius: 8px; padding: 0.6rem 0.9rem; margin: 0 0 0.9rem; }
+.system-section h3 { margin: 0 0 0.4rem; font-size: 0.95rem; }
+.system-section-note { color: #94a3b8; font-weight: 400; font-size: 0.78rem; }
+.system-rows { list-style: none; margin: 0; padding: 0; }
+.system-rows li {
+  display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.3rem;
+  border-top: 1px solid #24304a; cursor: pointer;
+}
+.system-rows li:first-child { border-top: none; }
+.system-rows li:hover { background: #24304a; }
+.system-rows--static li { cursor: default; }
+.system-rows--static li:hover { background: none; }
+.system-row-name { flex: 1; font-size: 0.9rem; }
+.system-part-type { font-size: 0.75rem; color: #94a3b8; min-width: 6.5rem; }
+.system-details label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.82rem; color: #94a3b8; margin-bottom: 0.5rem; }
+.system-details input[type='text'], .system-details input:not([type]), .system-details input[type='number'], .system-details textarea {
+  background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #e2e8f0; padding: 0.3rem 0.5rem;
+}
+.system-details-row { display: flex; gap: 1.2rem; align-items: flex-end; flex-wrap: wrap; }
+.system-details-row input[type='number'] { width: 6rem; }
+.system-details label.system-check { flex-direction: row; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem; }
+.system-details-actions { display: flex; gap: 0.75rem; align-items: center; }
+.system-details-actions button {
+  background: #334155; border: 1px solid #475569; border-radius: 6px; color: #e2e8f0; padding: 0.35rem 0.8rem; cursor: pointer;
+}
+.system-saved { color: #4ade80; font-size: 0.85rem; }
+.system-add-device { margin-top: 0.5rem; }
+.system-add-device .mgmt-inline-form { margin: 0 0 0.4rem; }
+.task-open-system { display: block; margin: -0.3rem 0 0.6rem; font-size: 0.82rem; }
+
+/* Tracker #48: "In checklists" on a task's record, and the one-box link search on a checklist. */
+.task-in-checklists { margin: 1rem 0; }
+.task-in-checklists-list { list-style: none; padding: 0; margin: 0 0 0.5rem; }
+.task-in-checklists-list li { display: flex; align-items: center; gap: 0.6rem; padding: 0.15rem 0; }
+.link-search-results { list-style: none; padding: 0; margin: 0.4rem 0; max-height: 16rem; overflow-y: auto; }
+.link-search-hit {
+  display: block; width: 100%; text-align: left; padding: 0.4rem 0.6rem; margin-bottom: 2px;
+  background: #1e293b; border: 1px solid #334155; border-radius: 0.35rem; color: inherit; cursor: pointer;
+}
+.link-search-hit:hover { border-color: #38bdf8; }
+.link-search-hit--picked { border-color: #38bdf8; background: #0c4a6e; }
+/* tracker #75/#76: the inline "＋ Add '<typed>' as a new item" row at the end of a search */
+.link-search-hit--new { border-style: dashed; color: #86efac; }
+.link-search-hit em { color: #94a3b8; font-size: 0.85em; }
+
+/* Tracker #48 piece 2: a linked task sitting inline in a checklist's step list. */
+.step-linked-badge { font-size: 0.75rem; color: #7dd3fc; white-space: nowrap; }
+
+/* Tracker #49: the "Print" link in a checklist's header (looks like the neighbouring buttons). */
+.checklist-print-link {
+  display: inline-block; padding: 0.3rem 0.7rem; border: 1px solid #475569; border-radius: 0.3rem;
+  color: inherit; text-decoration: none; font-size: 0.9rem; background: #1e293b;
+}
+.checklist-print-link:hover { border-color: #38bdf8; }
+
+/* Tracker #66: the consolidated "Referenced by" panel on a task's full record. */
+.task-refby { margin: 1rem 0; }
+.task-refby h3 { display: flex; align-items: center; gap: 0.5rem; }
+.task-refby-count {
+  background: #1e293b; border: 1px solid #334155; border-radius: 999px;
+  padding: 0 0.45rem; font-size: 0.72rem; color: #94a3b8; font-weight: 400;
+}
+.task-refby-list { list-style: none; padding: 0; margin: 0 0 0.5rem; }
+.task-refby-list li {
+  display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0;
+  border-bottom: 1px solid #1e293b; font-size: 0.85rem;
+}
+.task-refby-list li:last-child { border-bottom: none; }
+.task-refby-tag {
+  flex-shrink: 0; min-width: 5.6rem; font-size: 0.68rem; text-transform: uppercase;
+  letter-spacing: 0.04em; color: #64748b;
+}
+.task-refby-name { flex: 1; text-align: left; min-width: 0; overflow-wrap: anywhere; }
+.task-refby-sub { flex-shrink: 0; font-size: 0.72rem; color: #64748b; }
+.task-refby-history, .task-refby-steps { margin: 0.35rem 0; }
+.task-refby-retired {
+  display: flex; align-items: center; gap: 0.6rem; justify-content: space-between;
+  background: #422006; border: 1px solid #854d0e; border-radius: 6px;
+  padding: 0.5rem 0.7rem; margin-bottom: 0.6rem; font-size: 0.8rem; color: #fde68a;
+}
+.task-refby-retired button {
+  flex-shrink: 0; background: #1e293b; border: 1px solid #475569; border-radius: 4px;
+  color: #e2e8f0; padding: 0.3rem 0.6rem; font-size: 0.78rem; cursor: pointer;
+}
+.task-refby-add { display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.5rem; }
+/* tracker #69: "Keep it on its own schedule too?" after picking a checklist */
+.task-refby-question {
+  margin-top: 0.5rem; padding: 0.6rem 0.75rem; border: 1px solid #334155; border-radius: 6px;
+}
+.task-refby-question p { margin: 0 0 0.45rem; }
+.task-refby-question-buttons { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin-bottom: 0.45rem; }
+.mgmt-retired-badge { opacity: 0.55; }
+.mgmt-retired-badge .mgmt-item-name { text-decoration: line-through; }
+.mgmt-show-retired {
+  display: flex; align-items: center; gap: 0.35rem; flex-direction: row;
+  font-size: 0.78rem; color: #94a3b8; white-space: nowrap; cursor: pointer;
+}
+.mgmt-show-retired input { width: auto; margin: 0; }
+
+/* Tracker #67: "Clone with rename" on a device screen. */
+.system-clone-panel {
+  flex-basis: 100%;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
+  background: #0f172a; border: 1px solid #334155; border-radius: 6px;
+  padding: 0.6rem 0.7rem; margin-top: 0.5rem;
+}
+.system-clone-panel .mgmt-status { flex-basis: 100%; margin: 0 0 0.2rem; }
+.system-clone-panel input { flex: 1; min-width: 14rem; }
+.system-clone-done { flex-basis: 100%; color: #86efac; }

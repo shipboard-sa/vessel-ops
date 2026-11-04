@@ -1,0 +1,22 @@
+/* Layout only - the select/input skin comes from the surrounding form's own
+   select/input rules (.item-detail, .add-item-form, .recipe-review-fields). */
+.unit-picker {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+.unit-picker-new {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+}
+.unit-picker-new input {
+  width: 6rem;
+}
+.unit-picker-error {
+  margin: 0;
+  font-size: 0.72rem;
+  color: #fca5a5;
+}

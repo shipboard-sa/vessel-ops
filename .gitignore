@@ -1,0 +1,42 @@
+__pycache__/
+*.pyc
+*.bak-*
+vessel_local.db.bak-*
+.venv/
+pi-ssh-key
+pi-ssh-key.pub
+_run.log
+_st.log
+*.log
+_spares_raw.json
+.env
+*.env
+.vessel_ops/
+var/
+_sync_safe/
+vessel_local.trial.db*
+vessel_local.scratch*.db*
+
+# The live DB is no longer git-tracked directly (2026-09-17) - committing a
+# WAL-mode SQLite file mid-write risks a torn/inconsistent copy, and every
+# server start/stop rewrote its page layout with zero logical change,
+# producing constant no-op-looking diffs. The real backup path is
+# db_snapshot.py's SQLite .backup-API copy -> Syncthing -> the NAS (see
+# CHECKPOINT.md and the backup-infrastructure memory) - git tracks code,
+# not this file.
+vessel_local.db
+vessel_local.db-wal
+vessel_local.db-shm
+
+# Purchase data (Amazon / dive-shop exports) - local only, never committed (2026-09-27)
+references/AMAZON_SWEEP_*.xlsx
+references/AMAZON_DIVE_LOAD_DRAFT_*.xlsx
+references/VA_SCUBA_CULL_*.xlsx
+references/_load_inputs_*/
+
+# Marker: this machine is not the live mx-inv host (run-live.bat v6 refuses to start)
+LIVE-HOST-MOVED.txt
+LIVE-HOST-INTERIM.txt
+LIVE-HOST-MOVED.txt.parked-*
+vessel_local.db.laptop-snapshot-*
+BOAT-STACK-ON-PI.txt

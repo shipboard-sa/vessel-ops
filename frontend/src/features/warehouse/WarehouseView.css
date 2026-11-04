@@ -1,0 +1,384 @@
+.warehouse-view {
+  padding: 0 1rem 2rem;
+}
+.warehouse-view h2 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+.warehouse-view h3, .warehouse-view h4 {
+  font-size: 0.88rem;
+  margin: 0.8rem 0 0.4rem;
+}
+.sub-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.sub-tabs button {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #94a3b8;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.sub-tabs button.active {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+.warehouse-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin: 0.5rem 0 1rem;
+}
+.warehouse-table th {
+  text-align: left;
+  color: #94a3b8;
+  font-weight: 500;
+  padding: 0.3rem 0.5rem;
+  border-bottom: 1px solid #334155;
+  position: sticky;
+  top: 0;
+  background: #0f172a;
+}
+.warehouse-table td {
+  padding: 0.3rem 0.5rem;
+  border-bottom: 1px solid #24304a;
+}
+.warehouse-table input[type="number"] {
+  width: 70px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.2rem 0.4rem;
+}
+.warehouse-table button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 4px;
+  color: #e2e8f0;
+  cursor: pointer;
+  padding: 0.15rem 0.4rem;
+}
+
+.locker-table-wrap {
+  overflow-x: auto;
+}
+.locker-table {
+  white-space: nowrap;
+}
+.locker-table tbody tr {
+  cursor: pointer;
+}
+.locker-table tbody tr:hover {
+  background: #1e293b;
+}
+.locker-table tbody tr.selected {
+  background: #334155;
+}
+.locker-table td:first-child {
+  width: 1.2rem;
+}
+
+/* item detail / add-item shared styling */
+.item-detail {
+  background: #1e293b;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.item-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-detail-header h2 {
+  margin: 0;
+}
+.item-detail-header button {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+}
+.item-detail label,
+.add-item-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+.item-detail input,
+.item-detail select,
+.item-detail textarea,
+.add-item-form input,
+.add-item-form select {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+}
+.item-detail-row {
+  display: flex;
+  gap: 1rem;
+}
+.item-detail-row > label {
+  flex: 1;
+}
+.item-policy-hint {
+  color: #64748b;
+  font-size: 0.72rem;
+  margin: 0;
+}
+.locker-policy-legend {
+  color: #64748b;
+  font-size: 0.7rem;
+  margin: 0 0 0.5rem;
+}
+.item-detail-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.item-detail-actions button {
+  flex: 1;
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #475569;
+  background: #334155;
+  color: #e2e8f0;
+  cursor: pointer;
+}
+.item-detail-actions button.danger {
+  border-color: #7f1d1d;
+  background: #450a0a;
+  color: #fca5a5;
+}
+
+.stock-editor {
+  border-top: 1px solid #334155;
+  padding-top: 0.6rem;
+}
+.stock-lots {
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.stock-lots li {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+.stock-lots input[type="number"] {
+  width: 70px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.3rem 0.4rem;
+}
+.stock-lots select {
+  flex: 1;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.3rem 0.4rem;
+}
+.stock-lot-loc {
+  font-size: 0.75rem;
+  color: #64748b;
+  min-width: 100px;
+}
+.stock-lots button {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+}
+.stock-lots button:hover {
+  color: #f87171;
+}
+
+.add-item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: #1e293b;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 700px;
+}
+.add-item-form button {
+  align-self: flex-start;
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.add-item-success {
+  color: #86efac;
+  font-size: 0.85rem;
+}
+
+.location-list {
+  list-style: none;
+  margin: 0.75rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.audit-metrics {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem 0 1rem;
+}
+.audit-metric {
+  background: #1e293b;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+.audit-metric-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.audit-metric-label {
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+.audit-container-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+.audit-container-tabs button {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #94a3b8;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.audit-container-tabs button.active {
+  background: #334155;
+  color: #e2e8f0;
+}
+.audit-grid {
+  background: #1e293b;
+  border-radius: 8px;
+  padding: 1rem;
+}
+.audit-new-item, .audit-finish {
+  margin-top: 0.75rem;
+}
+.audit-new-item summary, .audit-finish summary {
+  cursor: pointer;
+  color: #94a3b8;
+  font-size: 0.82rem;
+}
+.audit-absent-select {
+  width: 100%;
+  min-height: 100px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  margin: 0.5rem 0;
+}
+.audit-finish input {
+  width: 100%;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.35rem 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Restock List: an item that has never had stock recorded (tracker #10) */
+.restock-unlocated { font-style: italic; opacity: 0.8; white-space: nowrap; }
+.restock-requested { color: #fbbf24; white-space: nowrap; }
+.restock-take-off { margin-left: 0.5rem; font-size: 0.78rem; }
+.restock-add {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
+  background: #1e293b; border-radius: 8px; padding: 0.6rem 0.8rem; margin: 0 0 0.8rem;
+}
+.restock-add input, .restock-add select, .restock-add-new input, .restock-add-new select {
+  background: #0f172a; border: 1px solid #334155; border-radius: 4px; color: #e2e8f0; padding: 0.3rem 0.5rem;
+}
+.restock-add select { min-width: 16rem; max-width: 26rem; }
+.restock-add button, .restock-add-new button {
+  background: #334155; border: 1px solid #475569; border-radius: 4px; color: #e2e8f0; padding: 0.3rem 0.7rem; cursor: pointer;
+}
+.restock-add button.link-button { background: none; border: none; color: #7dd3fc; }
+.restock-add-new { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.6rem; }
+.restock-add-new label { display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.8rem; color: #94a3b8; }
+
+/* Policy-specific tip under the threshold inputs (Owned) */
+.item-policy-hint--owned { border-left: 3px solid var(--accent, #4ea3ff); padding-left: 8px; }
+
+/* Multi-select "put these in a container" panel (tracker #6) */
+.stow-panel { border: 1px solid var(--border, #33415580); border-radius: 6px; padding: 8px 10px; margin: 8px 0; }
+.stow-panel-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.stow-lines { list-style: none; margin: 6px 0; padding: 0; max-height: 240px; overflow: auto; }
+.stow-lines li { display: flex; align-items: center; gap: 8px; padding: 2px 0; }
+.stow-lines input[type=number] { width: 4.5em; }
+/* ItemStowPanel v2: Move / Add-extra pick for an item already stowed elsewhere (2026-10-08) */
+.stow-lines li { flex-wrap: wrap; }
+.stow-choice { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 2px 0 6px 5.5em; font-size: 0.92em; }
+.stow-choice label { display: flex; align-items: center; gap: 4px; }
+.stow-choice--undecided { outline: 1px solid #d97706; border-radius: 4px; padding: 3px 6px; }
+.stow-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stow-unit { opacity: 0.7; min-width: 2.5em; }
+.stow-panel-commit { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
+.locker-table td:first-child, .locker-table th:first-child { width: 2em; text-align: center; }
+
+/* Audit tick-list (tracker #6) */
+/* Height follows the screen (the owner 2026-10-07: a fixed 300px showed only 5-6 rows on the tablet). */
+.audit-tick-candidates { list-style: none; margin: 6px 0; padding: 0; max-height: max(300px, 60vh); overflow: auto; }
+.audit-tick-candidates li label { display: flex; align-items: center; gap: 8px; padding: 2px 0; cursor: pointer; }
+/* Work a Container v9: the container's contents stay short so the add list below is always on screen */
+.stow-here-list { max-height: max(160px, 32vh); }
+.stow-here-toggle { font: inherit; font-weight: 600; padding: 0; }
+
+/* Which devices an item serves (v22) */
+.serves-editor { margin: 10px 0; }
+.serves-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; padding: 0; }
+.serves-chips li { display: inline-flex; align-items: center; gap: 4px; padding: 2px 4px 2px 8px; border: 1px solid var(--border, #33415580); border-radius: 12px; }
+.serves-chips li button { border: none; background: none; cursor: pointer; padding: 0 4px; }
+
+/* Locker "Stowed": every container on its own line, wrapping (tracker #38) */
+.locker-table td.locker-stowed { white-space: normal; min-width: 16rem; }
+
+/* Audit > "Parts with no device" review (UnlinkedPartsReview) */
+.unlinked-hint { color: var(--muted, #94a3b8); font-size: 0.85em; max-width: 28em; }
+.fit-model-entry { display: flex; flex-wrap: wrap; gap: 0.5em; margin: 0.3em 0 0.5em; }
+.fit-model-entry input { flex: 1 1 16em; min-height: 2.4em; }
+.fit-model-entry button { min-height: 2.4em; padding: 0.2em 0.8em; cursor: pointer; }
+.fit-flags { margin: 0.4em 0 0.8em 1.2em; }
+.fit-note { width: 100%; max-width: 40em; display: block; margin: 0.4em 0; }
+.fit-buttons { display: flex; flex-wrap: wrap; gap: 0.5em; margin: 0.4em 0 0.8em; }
+.fit-buttons button, .fit-remove button { min-height: 2.6em; padding: 0.3em 0.9em; cursor: pointer; }
+.fit-remove { border: 1px solid #b45309; border-radius: 6px; padding: 0.4em 0.8em; margin: 0.6em 0; }
+.unlinked-notes { white-space: pre-wrap; }
+
+.item-on-list { margin: 0.2em 0 0.8em; }
+.item-on-list button { min-height: 2.4em; padding: 0.2em 0.9em; cursor: pointer; }

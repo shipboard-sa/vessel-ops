@@ -1,0 +1,32 @@
+.focus-screen {
+  padding: 0 1rem 1rem;
+}
+
+.focus-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin: 0 0 0.6rem;
+}
+
+.focus-back-btn {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.focus-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.focus-crumb-item { display: inline-flex; align-items: baseline; gap: 0.15rem; }
+.focus-crumb-sep { color: #475569; margin: 0 0.15rem; }
+.focus-crumb--here { color: #e2e8f0; font-weight: 600; }
+.focus-crumb { max-width: 22rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: bottom; }
+button.focus-crumb { background: none; border: none; padding: 0; color: #7dd3fc; cursor: pointer; font-size: inherit; }
+button.focus-crumb:hover { text-decoration: underline; }

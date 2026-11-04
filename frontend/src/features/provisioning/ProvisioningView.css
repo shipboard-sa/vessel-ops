@@ -1,0 +1,107 @@
+.provisioning-view {
+  padding: 0 1rem 2rem;
+}
+.provisioning-view h2 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+.provisioning-view h3 {
+  font-size: 0.9rem;
+  margin: 1rem 0 0.4rem;
+}
+.prov-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+.prov-field input,
+.prov-field select {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.3rem 0.5rem;
+}
+.prov-warning {
+  background: #2a1e0f;
+  color: #fbbf24;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.82rem;
+}
+.aisle-order-section {
+  background: #1e293b;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+}
+.aisle-order-section summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.aisle-order-section textarea {
+  width: 100%;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #e2e8f0;
+  padding: 0.5rem;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+.aisle-order-section button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+.provisioning-view > button {
+  background: #334155;
+  border: 1px solid #475569;
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  margin: 0.5rem 0 1rem;
+}
+
+.prov-undecided {
+  margin: 0.75rem 0 1rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #b45309;
+  border-radius: 8px;
+}
+.prov-undecided h3 { margin: 0 0 0.3rem; font-size: 0.95rem; }
+.prov-qty-input { width: 5.5rem; margin-left: 0.4rem; }
+.food-details-fields { border: 1px solid #334155; border-radius: 8px; padding: 0.4rem 0.8rem 0.6rem; margin: 0.5rem 0; }
+.food-details-fields legend { padding: 0 0.4rem; font-size: 0.85rem; }
+.food-mode-row { display: flex; align-items: center; gap: 0.4rem; }
+.recipe-bulk-badge { font-size: 0.72rem; padding: 0.1rem 0.4rem; border-radius: 4px; background: #334155; color: #cbd5e1; }
+
+.prov-add-to-list { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0.6rem 0 0.8rem; }
+.prov-requested { font-size: 0.78rem; color: #fbbf24; }
+.recipe-pantry-check { margin: 0.6rem 0; padding: 0.5rem 0.7rem; border: 1px dashed #475569; border-radius: 8px; }
+.recipe-pantry-check h4 { margin: 0 0 0.25rem; font-size: 0.9rem; }
+.recipe-pantry-list { list-style: none; margin: 0.3rem 0 0; padding: 0; }
+.recipe-pantry-list li { padding: 0.15rem 0; }
+.recipe-pantry-list li.requested { color: #fbbf24; }
+.recipe-pantry-line { color: #94a3b8; font-size: 0.78rem; }
+.recipe-link-or-add { display: inline-flex; gap: 0.4rem; align-items: center; margin-left: 0.5rem; }
+
+.prov-receive-panel { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0.2rem 0 0.8rem; }
+.prov-receive-target { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+
+/* Receive: one row per container the item already lives in, with its own quantity (#47). */
+.receive-targets { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+.receive-targets-head { font-size: 0.85rem; color: #94a3b8; }
+.receive-target-row { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+.receive-target-row input[type="number"] { width: 5rem; }
+.receive-target-place { font-size: 0.9rem; }
+.receive-target-tag { font-size: 0.75rem; color: #7dd3fc; }
+.receive-expiry { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
+.receive-older { font-size: 0.9rem; padding: 0.3rem 0.5rem; border-left: 3px solid #f59e0b; }

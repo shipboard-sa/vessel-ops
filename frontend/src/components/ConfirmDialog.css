@@ -1,0 +1,44 @@
+/* Tap-safe confirm dialog (tracker #45): big targets, safe choice first and focused,
+   destructive choice separated by a gap so a stray thumb tap lands on "Keep it". */
+.confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(2, 6, 23, 0.72);
+}
+
+.confirm-dialog {
+  width: min(30rem, 100%);
+  padding: 1.25rem 1.25rem 1rem;
+  border-radius: 0.75rem;
+  background: #1e293b;
+  border: 2px solid #f87171;
+  color: #e2e8f0;
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.6);
+}
+
+.confirm-dialog h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+.confirm-message { margin: 0 0 1rem; color: #cbd5e1; line-height: 1.4; white-space: pre-line; }
+
+.confirm-actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.confirm-actions button {
+  flex: 1;
+  min-height: 3.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.confirm-keep { background: #0369a1; border: 2px solid #38bdf8; color: #fff; }
+.confirm-go { background: transparent; border: 2px solid #f87171; color: #fca5a5; }
+.confirm-go:hover, .confirm-go:active { background: #7f1d1d; color: #fff; }

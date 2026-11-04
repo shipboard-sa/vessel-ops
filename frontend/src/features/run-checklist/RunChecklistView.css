@@ -1,0 +1,74 @@
+.run-checklist-picker {
+  padding: 0 1rem 1.5rem;
+}
+.run-checklist-picker input {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  width: 100%;
+  max-width: 400px;
+}
+.run-checklist-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 700px;
+}
+.run-checklist-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: #1e293b;
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+.run-checklist-list li:hover {
+  background: #263449;
+}
+.run-checklist-name {
+  font-weight: 600;
+}
+.run-checklist-meta {
+  color: #94a3b8;
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+.run-checklist-focus {
+  padding: 0 1rem 1.5rem;
+  max-width: 900px;
+}
+.run-checklist-header h2 {
+  margin: 0.3rem 0 0.15rem;
+}
+.run-checklist-finish {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  background: #14532d;
+  border: 1px solid #166534;
+  border-radius: 6px;
+  color: #dcfce7;
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.run-checklist-finish:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.run-checklist-done {
+  background: #14532d;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  color: #dcfce7;
+  font-size: 0.9rem;
+}

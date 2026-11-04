@@ -1,0 +1,15 @@
+# Purpose: keep the boat's own data and build output out of any git repo made from this package.
+# Version: v1 (2026-09-24)
+.venv/
+__pycache__/
+*.pyc
+frontend/node_modules/
+frontend/dist/
+vessel_local.db
+vessel_local.db-wal
+vessel_local.db-shm
+*.bak-*
+var/
+local-settings.bat
+local-settings.sh
+*.log

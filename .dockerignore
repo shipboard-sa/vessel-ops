@@ -1,0 +1,19 @@
+# Purpose: Allowlist build context for the mx-inv image - only what the Dockerfile copies.
+# Version: v2 (2026-10-07) - v2: allow migrations/ (schema runner, imported at start). v1 (2026-09-24)
+# Scope: PRODUCTION - read by docker build (CI).
+# Architecture: mx-inv. The working tree holds an SSH private key (pi-ssh-key), the live
+#   DB and ~140 DB backups, purchase data and research files: ignore EVERYTHING, then
+#   allow back the few paths the image needs. Never loosen this to a denylist.
+*
+!requirements-server.txt
+!data.py
+!db_schema.py
+!telemetry_sync.py
+!backend/
+!migrations/
+!docker/backup.py
+!frontend/
+frontend/node_modules
+frontend/dist
+**/__pycache__
+**/*.pyc

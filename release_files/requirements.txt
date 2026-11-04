@@ -1,0 +1,14 @@
+# Purpose: Python dependencies for the Vessel Ops Panel release package.
+# Version: v1 (2026-09-24)
+# Scope: PRODUCTION - installed by setup.bat into .venv.
+# Architecture: backend (FastAPI app in backend/, data layer data.py/db_schema.py).
+#   Pinned to the versions the original install runs; needs Python 3.11 or newer.
+fastapi==0.141.1
+starlette==1.6.0
+pydantic==2.13.5
+uvicorn[standard]==0.52.4
+python-multipart==0.0.32   # form posts (device research)
+httpx==0.28.1              # optional /routing reverse proxy
+requests==2.34.2           # optional outbound integrations (logbook, sail config)
+pandas==3.0.5
+numpy==2.5.3
