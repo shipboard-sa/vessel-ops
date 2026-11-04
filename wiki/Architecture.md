@@ -12,6 +12,8 @@ Invocation: n/a (reference doc).
 
 # Architecture
 
+![App architecture](architecture.svg)
+
 **Current as of 2026-11-04:** live is schema **v39** on :8000 (branch `logbook-page`, the Ship's PC as
 normal host at 192.168.1.100:8000) - the newest pieces are the link to the boat's automation stack (`backend/boat_link.py`),
 the logbook / ship's log with its automatic deck log thread, passages, review-batch, and the start-time migration
